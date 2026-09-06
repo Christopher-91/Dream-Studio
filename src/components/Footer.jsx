@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Camera } from 'lucide-react';
+import { Camera } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,10 +18,10 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
+                <span className="font-bold font-sans">Ig</span>
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <Facebook className="w-5 h-5" />
+                <span className="font-bold font-sans">Fb</span>
               </a>
             </div>
           </div>
