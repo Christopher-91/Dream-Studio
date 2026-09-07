@@ -15,6 +15,12 @@ const images = [
   { src: '/assets/custom-cushion.jpg', alt: 'Custom Photo Cushion', category: 'Printing' },
   { src: '/assets/wedding-calendar.jpg', alt: 'Wedding Calendar Frame', category: 'Frames' },
   { src: '/assets/custom-clocks.jpg', alt: 'Custom Photo Clocks', category: 'Gifts' },
+  { src: '/assets/acrylic-lamp.jpg', alt: 'Acrylic Portrait Lamp', category: 'Gifts' },
+  { src: '/assets/collage-frame.jpg', alt: 'Love Story Collage Frame', category: 'Frames' },
+  { src: '/assets/birthday-collage-frame.jpg', alt: 'Birthday Collage Frame', category: 'Frames' },
+  { src: '/assets/wood-print.jpg', alt: 'Wood Printed Photo', category: 'Printing' },
+  { src: '/assets/pencil-sketch-frame.jpg', alt: 'Pencil Sketch Portrait Frame', category: 'Frames' },
+  { src: '/assets/custom-mugs.jpg', alt: 'Custom Printed Mugs Pyramid', category: 'Printing' },
 ];
 
 export default function Gallery() {
