@@ -1,17 +1,50 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const images = [
-  { src: '/assets/resin-clock.jpg', alt: 'Resin Art Clock', category: 'Resin Art' },
-  { src: '/assets/birthday-frame.jpg', alt: 'Custom Birthday Frame', category: 'Frames' },
+  { src: '/assets/resin-couple-plate.jpg', alt: 'Couple Photo Resin Plate', category: 'Resin Art' },
   { src: '/assets/flower-bouquet.jpg', alt: 'Flower Bouquet', category: 'Photography' },
   { src: '/assets/keychains.jpg', alt: 'Printed Keychains', category: 'Printing' },
+  { src: '/assets/bottle-lamp.jpg', alt: 'Custom Bottle and Lamp', category: 'Gifts' },
+  { src: '/assets/old-age-portrait.jpg', alt: 'Old Age Portrait Edit', category: 'Photo Editing' },
+  { src: '/assets/anniversary-frame.jpg', alt: 'Anniversary Frame Calendar', category: 'Frames' },
   { src: '/assets/heart-collage.jpg', alt: 'Heart Photo Collage', category: 'Frames' },
+  { src: '/assets/baby-milestones.jpg', alt: 'Baby Milestones Frame', category: 'Frames' },
+  { src: '/assets/rotating-cube.jpg', alt: 'Rotating Photo Cube', category: 'Gifts' },
+  { src: '/assets/custom-cushion.jpg', alt: 'Custom Photo Cushion', category: 'Printing' },
+  { src: '/assets/wedding-calendar.jpg', alt: 'Wedding Calendar Frame', category: 'Frames' },
+  { src: '/assets/custom-clocks.jpg', alt: 'Custom Photo Clocks', category: 'Gifts' },
 ];
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  const handleNext = useCallback((e) => {
+    if (e) e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) => (prev + 1) % images.length);
+    }
+  }, [selectedIndex]);
+
+  const handlePrev = useCallback((e) => {
+    if (e) e.stopPropagation();
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') setSelectedIndex(null);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedIndex, handleNext, handlePrev]);
 
   return (
     <section id="gallery" className="py-24 bg-background">
@@ -33,7 +66,7 @@ export default function Gallery() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="break-inside-avoid relative overflow-hidden rounded-lg group cursor-pointer"
-              onClick={() => setSelectedImage(image)}
+              onClick={() => setSelectedIndex(index)}
             >
               <img 
                 src={image.src} 
@@ -43,7 +76,7 @@ export default function Gallery() {
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
                 <span className="text-white font-serif text-xl font-medium mb-1">{image.category}</span>
-                <span className="text-white/80 text-sm uppercase tracking-wider">{image.alt}</span>
+                <span className="text-white/80 text-sm uppercase tracking-wider text-center">{image.alt}</span>
               </div>
             </motion.div>
           ))}
@@ -52,29 +85,49 @@ export default function Gallery() {
 
       {/* Lightbox */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedIndex !== null && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedIndex(null)}
           >
             <button 
-              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
-              onClick={() => setSelectedImage(null)}
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110]"
+              onClick={(e) => { e.stopPropagation(); setSelectedIndex(null); }}
             >
               <X className="w-8 h-8" />
             </button>
+
+            {/* Previous Arrow */}
+            <button 
+              className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors z-[110] bg-black/40 hover:bg-black/60 rounded-full p-2"
+              onClick={handlePrev}
+            >
+              <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
+            </button>
+
             <motion.img 
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              src={selectedImage.src} 
-              alt={selectedImage.alt}
+              key={selectedIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              src={images[selectedIndex].src} 
+              alt={images[selectedIndex].alt}
               className="max-w-full max-h-[90vh] object-contain rounded-sm"
               onClick={(e) => e.stopPropagation()}
             />
+
+            {/* Next Arrow */}
+            <button 
+              className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors z-[110] bg-black/40 hover:bg-black/60 rounded-full p-2"
+              onClick={handleNext}
+            >
+              <ChevronRight className="w-8 h-8 md:w-12 md:h-12" />
+            </button>
+
           </motion.div>
         )}
       </AnimatePresence>
