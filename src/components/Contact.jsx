@@ -54,7 +54,7 @@ export default function Contact() {
                 <MapPin className="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-foreground">Visit Us</h4>
-                  <p className="text-foreground/70 mt-1">[Placeholder Address Line 1]<br/>[Placeholder City, Postal Code]</p>
+                  <p className="text-foreground/70 mt-1">M.G road, near Lenskart<br/>Shetty Street, Chikmagalur-577101</p>
                 </div>
               </div>
               
@@ -62,7 +62,7 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-foreground">Call or WhatsApp</h4>
-                  <p className="text-foreground/70 mt-1">[Placeholder Phone Number]</p>
+                  <p className="text-foreground/70 mt-1">+91 8310755920</p>
                 </div>
               </div>
               
@@ -70,7 +70,7 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-foreground">Email Us</h4>
-                  <p className="text-foreground/70 mt-1">[Placeholder Email Address]</p>
+                  <p className="text-foreground/70 mt-1">dreamstudiohl@gmail.com</p>
                 </div>
               </div>
 
@@ -136,7 +136,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-md bg-transparent border border-foreground/20 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors"
-                      placeholder="+1 (555) 000-0000"
+                      placeholder="+91 83107 55920"
                     />
                   </div>
                   <div>
@@ -149,7 +149,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-md bg-transparent border border-foreground/20 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-colors"
-                      placeholder="jane@example.com"
+                      placeholder="dreamstudiohl@gmail.com"
                     />
                   </div>
                 </div>

@@ -41,7 +41,7 @@ export default function CTA() {
             Contact Us
           </a>
           <a 
-            href="https://wa.me/[PlaceholderPhoneNumber]" 
+            href="https://wa.me/918310755920" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn-secondary !text-white !border-white/30 hover:!border-white hover:!bg-white/10 w-full sm:w-auto flex items-center justify-center gap-2"

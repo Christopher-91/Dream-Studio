@@ -50,10 +50,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6 font-serif tracking-wide uppercase text-sm">Contact</h4>
             <ul className="space-y-3">
-              <li>[Placeholder Address]</li>
-              <li>[Placeholder City]</li>
-              <li className="pt-2">[Placeholder Phone]</li>
-              <li>[Placeholder Email]</li>
+              <li>M.G road, near Lenskart</li>
+              <li>Shetty Street, Chikmagalur-577101</li>
+              <li className="pt-2">+91 8310755920</li>
+              <li>dreamstudiohl@gmail.com</li>
             </ul>
           </div>
 
