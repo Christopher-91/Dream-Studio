@@ -28,7 +28,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Camera className="w-8 h-8 text-accent" />
-            <span className="font-serif text-2xl font-bold text-foreground tracking-tight">Dream Studio</span>
+            <span className={`font-serif text-2xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-foreground' : 'text-white'}`}>Dream Studio</span>
           </div>
 
           {/* Desktop Nav */}
@@ -37,7 +37,11 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground/80 hover:text-accent font-medium transition-colors"
+                className={`font-medium transition-colors ${
+                  isScrolled 
+                    ? 'text-foreground/80 hover:text-accent' 
+                    : 'text-white/90 hover:text-accent'
+                }`}
               >
                 {link.name}
               </a>
@@ -48,7 +52,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground p-2"
+              className={`p-2 transition-colors ${isScrolled ? 'text-foreground' : 'text-white'}`}
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
