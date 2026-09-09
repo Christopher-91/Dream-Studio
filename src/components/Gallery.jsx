@@ -21,6 +21,7 @@ const mediaList = [
   { type: 'image', src: '/assets/wood-print.jpg', alt: 'Wood Printed Photo', category: 'Printing' },
   { type: 'image', src: '/assets/pencil-sketch-frame.jpg', alt: 'Pencil Sketch Portrait Frame', category: 'Frames' },
   { type: 'image', src: '/assets/custom-mugs.jpg', alt: 'Custom Printed Mugs Pyramid', category: 'Printing' },
+  { type: 'image', src: '/assets/wall-frames-display.jpg', alt: 'Studio Wall Frames Display', category: 'Photography' },
   { type: 'video', src: '/assets/WhatsApp Video 1.mp4', alt: 'Studio Showcase 1', category: 'Video' },
   { type: 'video', src: '/assets/WhatsApp Video 2.mp4', alt: 'Studio Showcase 2', category: 'Video' },
   { type: 'video', src: '/assets/WhatsApp Video 3.mp4', alt: 'Studio Showcase 3', category: 'Video' },
