@@ -24,6 +24,10 @@ const mediaList = [
   { type: 'image', src: '/assets/wall-frames-display.jpg', alt: 'Studio Wall Frames Display', category: 'Photography' },
   { type: 'image', src: '/assets/couple-portrait-frame.jpg', alt: 'Couple Portrait Frame', category: 'Frames' },
   { type: 'image', src: '/assets/gift-cushions-wall.jpg', alt: 'Gift Cushions Wall', category: 'Gifts' },
+  { type: 'image', src: '/assets/rose-bouquets.jpg', alt: 'Rose Bouquets', category: 'Gifts' },
+  { type: 'image', src: '/assets/floral-resin-plate.jpg', alt: 'Floral Resin Plate', category: 'Resin Art' },
+  { type: 'image', src: '/assets/geometric-frame.jpg', alt: 'Geometric Photo Frame', category: 'Frames' },
+  { type: 'image', src: '/assets/digital-oil-painting.jpg', alt: 'Digital Oil Painting Portrait', category: 'Painting' },
   { type: 'video', src: '/assets/WhatsApp Video 1.mp4', alt: 'Studio Showcase 1', category: 'Video' },
   { type: 'video', src: '/assets/WhatsApp Video 2.mp4', alt: 'Studio Showcase 2', category: 'Video' },
   { type: 'video', src: '/assets/WhatsApp Video 3.mp4', alt: 'Studio Showcase 3', category: 'Video' },
@@ -151,9 +155,9 @@ export default function Gallery() {
               className="break-inside-avoid relative overflow-hidden rounded-lg group cursor-pointer bg-black/60 hover:bg-black/80 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center aspect-[4/5]"
               onClick={() => setShowAllPhotos(true)}
             >
-              <div className="flex flex-col items-center justify-center p-8 text-white/80 group-hover:text-white transition-colors">
+              <div className="flex flex-col items-center justify-center p-8 text-white/80 transition-colors">
                 <Images className="w-16 h-16 mb-4 group-hover:-translate-y-2 group-hover:text-accent transition-all duration-300" />
-                <span className="font-serif text-2xl font-medium tracking-wide text-center">View More Photos</span>
+                <span className="font-sans text-2xl font-medium tracking-wide text-center group-hover:text-accent transition-colors duration-300">View More Photos</span>
               </div>
             </motion.div>
           )}
