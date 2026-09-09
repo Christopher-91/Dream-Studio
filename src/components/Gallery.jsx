@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight, PlayCircle } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, PlayCircle, Images } from 'lucide-react';
 
 const mediaList = [
   { type: 'image', src: '/assets/resin-couple-plate.jpg', alt: 'Couple Photo Resin Plate', category: 'Resin Art' },
@@ -22,6 +22,8 @@ const mediaList = [
   { type: 'image', src: '/assets/pencil-sketch-frame.jpg', alt: 'Pencil Sketch Portrait Frame', category: 'Frames' },
   { type: 'image', src: '/assets/custom-mugs.jpg', alt: 'Custom Printed Mugs Pyramid', category: 'Printing' },
   { type: 'image', src: '/assets/wall-frames-display.jpg', alt: 'Studio Wall Frames Display', category: 'Photography' },
+  { type: 'image', src: '/assets/couple-portrait-frame.jpg', alt: 'Couple Portrait Frame', category: 'Frames' },
+  { type: 'image', src: '/assets/gift-cushions-wall.jpg', alt: 'Gift Cushions Wall', category: 'Gifts' },
   { type: 'video', src: '/assets/WhatsApp Video 1.mp4', alt: 'Studio Showcase 1', category: 'Video' },
   { type: 'video', src: '/assets/WhatsApp Video 2.mp4', alt: 'Studio Showcase 2', category: 'Video' },
   { type: 'video', src: '/assets/WhatsApp Video 3.mp4', alt: 'Studio Showcase 3', category: 'Video' },
@@ -32,10 +34,18 @@ const mediaList = [
 export default function Gallery() {
   const [filter, setFilter] = useState('photos');
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
 
   const filteredMedia = useMemo(() => {
     return mediaList.filter(item => filter === 'photos' ? item.type === 'image' : item.type === 'video');
   }, [filter]);
+
+  const displayedMedia = useMemo(() => {
+    if (filter === 'photos' && !showAllPhotos) {
+      return filteredMedia.slice(0, 12);
+    }
+    return filteredMedia;
+  }, [filteredMedia, filter, showAllPhotos]);
 
   const handleNext = useCallback((e) => {
     if (e) e.stopPropagation();
@@ -75,7 +85,7 @@ export default function Gallery() {
           
           <div className="flex justify-center mt-8 space-x-4">
             <button 
-              onClick={() => { setFilter('photos'); setSelectedIndex(null); }}
+              onClick={() => { setFilter('photos'); setSelectedIndex(null); setShowAllPhotos(false); }}
               className={`px-8 py-2.5 rounded-full font-medium transition-colors ${
                 filter === 'photos' 
                   ? 'bg-accent text-white shadow-lg' 
@@ -85,7 +95,7 @@ export default function Gallery() {
               Photos
             </button>
             <button 
-              onClick={() => { setFilter('videos'); setSelectedIndex(null); }}
+              onClick={() => { setFilter('videos'); setSelectedIndex(null); setShowAllPhotos(false); }}
               className={`px-8 py-2.5 rounded-full font-medium transition-colors ${
                 filter === 'videos' 
                   ? 'bg-accent text-white shadow-lg' 
@@ -98,7 +108,7 @@ export default function Gallery() {
         </div>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 mt-12">
-          {filteredMedia.map((item, index) => (
+          {displayedMedia.map((item, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -132,6 +142,21 @@ export default function Gallery() {
               </div>
             </motion.div>
           ))}
+
+          {filter === 'photos' && !showAllPhotos && filteredMedia.length > 12 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="break-inside-avoid relative overflow-hidden rounded-lg group cursor-pointer bg-black/60 hover:bg-black/80 backdrop-blur-md transition-all duration-300 flex flex-col items-center justify-center aspect-[4/5]"
+              onClick={() => setShowAllPhotos(true)}
+            >
+              <div className="flex flex-col items-center justify-center p-8 text-white/80 group-hover:text-white transition-colors">
+                <Images className="w-16 h-16 mb-4 group-hover:-translate-y-2 group-hover:text-accent transition-all duration-300" />
+                <span className="font-serif text-2xl font-medium tracking-wide text-center">View More Photos</span>
+              </div>
+            </motion.div>
+          )}
         </div>
       </div>
 
