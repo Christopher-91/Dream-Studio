@@ -104,7 +104,7 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="break-inside-avoid relative overflow-hidden rounded-lg group cursor-pointer bg-black/5"
+              className="break-inside-avoid relative overflow-hidden rounded-lg group cursor-pointer"
               onClick={() => setSelectedIndex(index)}
             >
               {item.type === 'image' ? (
@@ -112,22 +112,17 @@ export default function Gallery() {
                   src={item.src} 
                   alt={item.alt} 
                   loading="lazy"
-                  className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
+                  className="block w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
                 />
               ) : (
-                <div className="relative">
-                  <video 
-                    src={item.src} 
-                    className="w-full h-auto transform group-hover:scale-105 transition-transform duration-700"
-                    muted 
-                    loop 
-                    playsInline
-                    autoPlay
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-                    <PlayCircle className="w-16 h-16 text-white/80" />
-                  </div>
-                </div>
+                <video 
+                  src={item.src} 
+                  className="block w-full aspect-[4/5] object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
+                  muted 
+                  loop 
+                  playsInline
+                  autoPlay
+                />
               )}
               
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
