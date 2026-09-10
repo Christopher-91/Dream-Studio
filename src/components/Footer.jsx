@@ -56,12 +56,8 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+        <div className="border-t border-white/10 pt-8 flex justify-center items-center text-sm text-white/60">
           <p>&copy; {currentYear} Dream Studio. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>
