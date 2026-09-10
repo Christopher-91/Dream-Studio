@@ -107,31 +107,43 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Google Maps */}
-            <div className="relative w-full h-64 bg-foreground/5 rounded-lg border border-foreground/10 overflow-hidden shadow-inner group">
-              <iframe 
-                src="https://maps.google.com/maps?q=13.3173926,75.7743926&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Dream Studio Location"
-              ></iframe>
-              
-              {/* Custom Hover Overlay */}
-              <a 
-                href="https://maps.google.com/?q=13.3173926,75.7743926" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10"
-              >
-                <span className="bg-accent text-white px-6 py-3 rounded-full font-medium shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  Open in Google Maps
-                </span>
-              </a>
+            {/* Location Visuals */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Google Maps */}
+              <div className="relative w-full h-64 bg-foreground/5 rounded-lg border border-foreground/10 overflow-hidden shadow-inner group">
+                <iframe 
+                  src="https://maps.google.com/maps?q=13.3173926,75.7743926&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Dream Studio Location"
+                ></iframe>
+                
+                {/* Custom Hover Overlay */}
+                <a 
+                  href="https://maps.google.com/?q=13.3173926,75.7743926" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10"
+                >
+                  <span className="bg-accent text-white px-4 py-2 rounded-full font-medium text-sm shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2 whitespace-nowrap">
+                    <MapPin className="w-4 h-4" />
+                    Open Maps
+                  </span>
+                </a>
+              </div>
+
+              {/* Shop Storefront */}
+              <div className="w-full h-64 rounded-lg overflow-hidden border border-foreground/10 shadow-inner group">
+                <img 
+                  src="/assets/shop-front.jpg" 
+                  alt="Dream Studio Storefront" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
           </motion.div>
 

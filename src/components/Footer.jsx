@@ -20,6 +20,9 @@ export default function Footer() {
               <a href="https://www.instagram.com/d_r_e_a_m__studio_ckm?stkn=eG0zOXZ0eXRxN29j" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform drop-shadow-md">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" className="w-8 h-8" />
               </a>
+              <a href="https://wa.me/918310755920" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform drop-shadow-md">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className="w-8 h-8" />
+              </a>
             </div>
           </div>
 
