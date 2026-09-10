@@ -86,7 +86,7 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-foreground">Call or WhatsApp</h4>
-                  <p className="text-foreground/70 mt-1">+91 8310755920</p>
+                  <p className="text-foreground/70 mt-1">+91 8310755920, +91 8867575828</p>
                 </div>
               </div>
               
@@ -102,7 +102,7 @@ export default function Contact() {
                 <Clock className="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-foreground">Business Hours</h4>
-                  <p className="text-foreground/70 mt-1">Monday - Saturday: 10:00 AM - 7:00 PM<br/>Sunday: Closed</p>
+                  <p className="text-foreground/70 mt-1">Monday - Sunday: 10:00 AM - 9:00 PM</p>
                 </div>
               </div>
             </div>
