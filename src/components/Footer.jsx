@@ -17,11 +17,8 @@ export default function Footer() {
               Preserving memories. Creating art. A creative photo and art studio dedicated to turning your special moments into something you can keep forever.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <span className="font-bold font-sans">Ig</span>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <span className="font-bold font-sans">Fb</span>
+              <a href="https://www.instagram.com/d_r_e_a_m__studio_ckm?stkn=eG0zOXZ0eXRxN29j" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center hover:scale-110 transition-transform drop-shadow-md">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram" className="w-8 h-8" />
               </a>
             </div>
           </div>
