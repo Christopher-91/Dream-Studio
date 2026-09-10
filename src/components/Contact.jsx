@@ -86,7 +86,17 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-accent mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="font-bold text-foreground">Call or WhatsApp</h4>
-                  <p className="text-foreground/70 mt-1">+91 8310755920, +91 8867575828</p>
+                  <div className="text-foreground/70 mt-1 flex flex-col sm:flex-row sm:gap-3 sm:items-center">
+                    <a href="tel:+918310755920" className="group flex items-center gap-2 hover:text-accent transition-colors py-1">
+                      +91 8310755920
+                      <span className="text-xs font-medium bg-accent text-white px-2 py-0.5 rounded-full opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Call</span>
+                    </a>
+                    <span className="hidden sm:inline text-foreground/20">|</span>
+                    <a href="tel:+918867575828" className="group flex items-center gap-2 hover:text-accent transition-colors py-1">
+                      +91 8867575828
+                      <span className="text-xs font-medium bg-accent text-white px-2 py-0.5 rounded-full opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">Call</span>
+                    </a>
+                  </div>
                 </div>
               </div>
               
